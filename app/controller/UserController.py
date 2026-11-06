@@ -1,3 +1,5 @@
+import os
+
 from flask import redirect, flash, request
 from app import app, db, session
 
@@ -88,8 +90,8 @@ def recoverUser():
         }
 
     try:
-        emailSender = "musicateincorporated@gmail.com"
-        emailPssword = "toshtcphwlxuknac"
+        emailSender = os.environ["EMAIL_SENDER"]
+        emailPssword = os.environ["EMAIL_PASSWORD"]
         
         token = generateToken()
 
